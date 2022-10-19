@@ -152,7 +152,7 @@ class BaseAviary(gym.Env):
         #### Connect to PyBullet ###################################
         if self.GUI:
             #### With debug GUI ########################################
-            self.CLIENT = p.connect(p.GUI) # p.connect(p.GUI, options="--opengl2")
+            self.CLIENT = p.connect(p.GUI, options="--width=800 --height=600") # p.connect(p.GUI, options="--opengl2")
             for i in [p.COV_ENABLE_RGB_BUFFER_PREVIEW, p.COV_ENABLE_DEPTH_BUFFER_PREVIEW, p.COV_ENABLE_SEGMENTATION_MARK_PREVIEW]:
                 p.configureDebugVisualizer(i, 0, physicsClientId=self.CLIENT)
             p.resetDebugVisualizerCamera(cameraDistance=3,
@@ -502,6 +502,11 @@ class BaseAviary(gym.Env):
 
         """
         if self.RECORD and self.GUI:
+            self.IMG_PATH = os.path.join(
+                self.OUTPUT_FOLDER,
+                "recording_" + datetime.now().strftime("%m.%d.%Y_%H.%M.%S"),
+                '')
+            os.makedirs(os.path.dirname(self.IMG_PATH), exist_ok=True)
             self.VIDEO_ID = p.startStateLogging(loggingType=p.STATE_LOGGING_VIDEO_MP4,
                                                 fileName=os.path.join(self.OUTPUT_FOLDER, "recording_" + datetime.now().strftime("%m.%d.%Y_%H.%M.%S"), "output.mp4"),
                                                 physicsClientId=self.CLIENT

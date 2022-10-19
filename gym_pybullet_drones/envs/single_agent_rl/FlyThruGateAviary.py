@@ -89,6 +89,24 @@ class FlyThruGateAviary(BaseSingleAgentAviary):
                        p.getQuaternionFromEuler([0,0,0]),
                        physicsClientId=self.CLIENT
                        )
+        p.addUserDebugLine(lineFromXYZ=[0, 0, 0],
+                           lineToXYZ=[1, 0, 0],
+                           lineColorRGB=[1, 0, 0],
+                           parentObjectUniqueId=-1,
+                           parentLinkIndex=-1,
+                           physicsClientId=self.CLIENT)
+        p.addUserDebugLine(lineFromXYZ=[0, 0, 0],
+                           lineToXYZ=[0, 1, 0],
+                           lineColorRGB=[0, 1, 0],
+                           parentObjectUniqueId=-1,
+                           parentLinkIndex=-1,
+                           physicsClientId=self.CLIENT)
+        p.addUserDebugLine(lineFromXYZ=[0, 0, 0],
+                           lineToXYZ=[0, 0, 1],
+                           lineColorRGB=[0, 0, 1],
+                           parentObjectUniqueId=-1,
+                           parentLinkIndex=-1,
+                           physicsClientId=self.CLIENT)
 
     ################################################################################
     
