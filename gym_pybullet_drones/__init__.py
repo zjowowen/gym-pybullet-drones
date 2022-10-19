@@ -39,6 +39,11 @@ register(
 )
 
 register(
+    id='flythrugate-aviary-no-norm-v0',
+    entry_point='gym_pybullet_drones.envs.single_agent_rl:FlyThruGateAviaryNoNorm',
+)
+
+register(
     id='tune-aviary-v0',
     entry_point='gym_pybullet_drones.envs.single_agent_rl:TuneAviary',
 )
