@@ -12,7 +12,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
-numpy = "^1.22"
+numpy = "1.21.*"
 Pillow = "^9.0"
 matplotlib = "^3.5"
 cycler = "^0.10"
